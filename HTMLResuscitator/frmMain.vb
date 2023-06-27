@@ -3,6 +3,9 @@
 Public Class frmMain
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "HTMLResuscitator " & My.Application.Info.Version.ToString
+        frmSetting.Icon = Me.Icon
+        frmHTMLSourceCode.Icon = Me.Icon
+        AboutBox1.Icon = Me.Icon
     End Sub
 
     Private Sub btnOpenFile_Click(sender As Object, e As EventArgs) Handles btnOpenFile.Click
@@ -19,7 +22,6 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox(ex.Message, vbExclamation)
         End Try
-        Me.Text = "HTMLResuscitator " & My.Application.Info.Version.ToString
     End Sub
 
     Private Sub mnuSetting_Click(sender As Object, e As EventArgs) Handles mnuSetting.Click
@@ -82,8 +84,8 @@ Public Class frmMain
         If txtFilePath.Text = "" Then
             Return
         End If
+        urlBackup = txtFilePath.Text
         Try
-            urlBackup = txtFilePath.Text
             txtFilePath.Text = AddHttpPrefix(txtFilePath.Text)
             wveHTMLLookup.Source = New Uri(txtFilePath.Text)
         Catch ex As System.UriFormatException
@@ -93,7 +95,6 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox("錯誤：" & ex.Message, vbCritical)
         End Try
-        Me.Text = "HTMLResuscitator " & My.Application.Info.Version.ToString
     End Sub
 
     Public Function IsSecondCharColon(ByVal text As String) As Boolean
@@ -106,6 +107,14 @@ Public Class frmMain
     End Function
 
     Private Sub mnuGithubRepo_Click(sender As Object, e As EventArgs) Handles mnuGithubRepo.Click
-        Shell("explorer HTTP://tw.yahoo.com "), vbNormalFocus
+        Shell("explorer https://github.com/510208/HTMLResuscitator ", vbNormalFocus)
+    End Sub
+
+    Private Sub mnuAbout_Click(sender As Object, e As EventArgs) Handles mnuAbout.Click
+        AboutBox1.Show()
+    End Sub
+
+    Private Sub wveHTMLLookup_NavigationCompleted(sender As Object, e As CoreWebView2NavigationCompletedEventArgs) Handles wveHTMLLookup.NavigationCompleted
+        Me.Text = "HTMLResuscitator " & My.Application.Info.Version.ToString
     End Sub
 End Class
