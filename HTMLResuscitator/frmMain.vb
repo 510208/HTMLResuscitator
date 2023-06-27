@@ -104,4 +104,8 @@ Public Class frmMain
 
         Return False
     End Function
+
+    Private Sub mnuGithubRepo_Click(sender As Object, e As EventArgs) Handles mnuGithubRepo.Click
+        Shell("explorer HTTP://tw.yahoo.com "), vbNormalFocus
+    End Sub
 End Class

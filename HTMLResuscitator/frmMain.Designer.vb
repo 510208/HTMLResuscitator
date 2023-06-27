@@ -23,6 +23,7 @@ Partial Class frmMain
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.wveHTMLLookup = New Microsoft.Web.WebView2.WinForms.WebView2()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnReload = New System.Windows.Forms.Button()
@@ -38,6 +39,9 @@ Partial Class frmMain
         Me.mnuSetting = New System.Windows.Forms.ToolStripMenuItem()
         Me.chkTimeReload = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuShowHTML = New System.Windows.Forms.ToolStripMenuItem()
+        Me.說明HToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuAbout = New System.Windows.Forms.ToolStripMenuItem()
+        Me.mnuGithubRepo = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrReload = New System.Windows.Forms.Timer(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.wveHTMLLookup, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,7 +140,7 @@ Partial Class frmMain
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuFile, Me.說明HToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(800, 24)
@@ -168,6 +172,25 @@ Partial Class frmMain
         Me.mnuShowHTML.Size = New System.Drawing.Size(186, 22)
         Me.mnuShowHTML.Text = "顯示HTML原始碼"
         '
+        '說明HToolStripMenuItem
+        '
+        Me.說明HToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.mnuAbout, Me.mnuGithubRepo})
+        Me.說明HToolStripMenuItem.Name = "說明HToolStripMenuItem"
+        Me.說明HToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
+        Me.說明HToolStripMenuItem.Text = "說明(&H)"
+        '
+        'mnuAbout
+        '
+        Me.mnuAbout.Name = "mnuAbout"
+        Me.mnuAbout.Size = New System.Drawing.Size(198, 22)
+        Me.mnuAbout.Text = "關於(&A)"
+        '
+        'mnuGithubRepo
+        '
+        Me.mnuGithubRepo.Name = "mnuGithubRepo"
+        Me.mnuGithubRepo.Size = New System.Drawing.Size(198, 22)
+        Me.mnuGithubRepo.Text = "GithHub遠端儲存庫(&G)"
+        '
         'tmrReload
         '
         '
@@ -194,6 +217,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.wveHTMLLookup)
         Me.Controls.Add(Me.Label2)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMain"
         Me.Text = "HTMLResuscitator"
@@ -226,4 +250,7 @@ Partial Class frmMain
     Friend WithEvents lblTmrReloadEnabled As ToolStripStatusLabel
     Friend WithEvents mnuShowHTML As ToolStripMenuItem
     Friend WithEvents Label2 As Label
+    Friend WithEvents 說明HToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents mnuAbout As ToolStripMenuItem
+    Friend WithEvents mnuGithubRepo As ToolStripMenuItem
 End Class
