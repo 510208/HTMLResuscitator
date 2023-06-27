@@ -39,6 +39,7 @@ Partial Class frmMain
         Me.chkTimeReload = New System.Windows.Forms.ToolStripMenuItem()
         Me.mnuShowHTML = New System.Windows.Forms.ToolStripMenuItem()
         Me.tmrReload = New System.Windows.Forms.Timer(Me.components)
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.wveHTMLLookup, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
@@ -170,6 +171,18 @@ Partial Class frmMain
         'tmrReload
         '
         '
+        'Label2
+        '
+        Me.Label2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label2.BackColor = System.Drawing.Color.White
+        Me.Label2.Location = New System.Drawing.Point(18, 100)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(764, 17)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "還未載入網頁或原始檔"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -180,6 +193,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.wveHTMLLookup)
+        Me.Controls.Add(Me.Label2)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMain"
         Me.Text = "HTMLResuscitator"
@@ -211,4 +225,5 @@ Partial Class frmMain
     Friend WithEvents chkTimeReload As ToolStripMenuItem
     Friend WithEvents lblTmrReloadEnabled As ToolStripStatusLabel
     Friend WithEvents mnuShowHTML As ToolStripMenuItem
+    Friend WithEvents Label2 As Label
 End Class

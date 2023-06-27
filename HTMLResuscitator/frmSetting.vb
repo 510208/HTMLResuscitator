@@ -10,7 +10,7 @@
     End Sub
 
     Private Sub nudTimerTime_ValueChanged(sender As Object, e As EventArgs) Handles nudTimerTime.ValueChanged
-        frmMain.tmrReload.Interval = nudTimerTime.Value
+        frmMain.tmrReload.Interval = nudTimerTime.Value * 1000
         frmMain.tmrReload.Enabled = chkEnableTimer.Checked
     End Sub
 End Class

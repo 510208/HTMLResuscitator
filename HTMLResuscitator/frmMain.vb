@@ -6,10 +6,12 @@ Public Class frmMain
     End Sub
 
     Private Sub btnOpenFile_Click(sender As Object, e As EventArgs) Handles btnOpenFile.Click
+        Me.Text = Me.Text & " [ 正在取得檔案位置 ]"
         ofdHTMLName.ShowDialog()
         Dim filePath As String = ofdHTMLName.FileName
         lblFileName.Text = "網頁檔案：" & filePath
         txtFilePath.Text = filePath
+        Me.Text = Me.Text & " [ 正在載入網頁 ]"
         Try
             wveHTMLLookup.Source = New Uri(txtFilePath.Text)
         Catch ex As UriFormatException
@@ -17,6 +19,7 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox(ex.Message, vbExclamation)
         End Try
+        Me.Text = "HTMLResuscitator " & My.Application.Info.Version.ToString
     End Sub
 
     Private Sub mnuSetting_Click(sender As Object, e As EventArgs) Handles mnuSetting.Click
@@ -60,7 +63,8 @@ Public Class frmMain
         frmSetting.chkEnableTimer.Checked = chkTimeReload.Checked
         frmSetting.nudTimerTime.Enabled = frmSetting.chkEnableTimer.Checked
         tmrReload.Enabled = chkTimeReload.Checked
-        lblTmrReloadEnabled.Text = "自動重載啟用狀態：" & tmrReload.Enabled.ToString & "," & frmSetting.nudTimerTime.Value.ToString & "ms"
+        Dim tmrReloadTime As Single = frmSetting.nudTimerTime.Value
+        lblTmrReloadEnabled.Text = "自動重載啟用狀態：" & tmrReload.Enabled.ToString & "," & tmrReloadTime.ToString & "ms"
     End Sub
 
     Private Sub mnuShowHTML_Click(sender As Object, e As EventArgs) Handles mnuShowHTML.Click
@@ -68,10 +72,12 @@ Public Class frmMain
     End Sub
 
     Private Sub tmrReload_Tick(sender As Object, e As EventArgs) Handles tmrReload.Tick
+        MsgBox("11")
         wveHTMLLookupResurf()
     End Sub
 
     Public Sub wveHTMLLookupResurf()
+        Me.Text = Me.Text & "[ 正在載入網頁 ]"
         Dim urlBackup As String
         If txtFilePath.Text = "" Then
             Return
@@ -87,6 +93,7 @@ Public Class frmMain
         Catch ex As Exception
             MsgBox("錯誤：" & ex.Message, vbCritical)
         End Try
+        Me.Text = "HTMLResuscitator " & My.Application.Info.Version.ToString
     End Sub
 
     Public Function IsSecondCharColon(ByVal text As String) As Boolean
