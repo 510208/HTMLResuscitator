@@ -74,7 +74,6 @@ Public Class frmMain
     End Sub
 
     Private Sub tmrReload_Tick(sender As Object, e As EventArgs) Handles tmrReload.Tick
-        MsgBox("11")
         wveHTMLLookupResurf()
     End Sub
 
@@ -116,5 +115,9 @@ Public Class frmMain
 
     Private Sub wveHTMLLookup_NavigationCompleted(sender As Object, e As CoreWebView2NavigationCompletedEventArgs) Handles wveHTMLLookup.NavigationCompleted
         Me.Text = "HTMLResuscitator " & My.Application.Info.Version.ToString
+    End Sub
+
+    Private Sub wveHTMLLookup_Click(sender As Object, e As EventArgs) Handles wveHTMLLookup.Click
+
     End Sub
 End Class

@@ -29,8 +29,8 @@ Partial Class AboutBox1
         Me.LabelVersion = New System.Windows.Forms.Label()
         Me.LabelProductName = New System.Windows.Forms.Label()
         Me.TableLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -133,16 +133,6 @@ Partial Class AboutBox1
         Me.TableLayoutPanel.Size = New System.Drawing.Size(396, 249)
         Me.TableLayoutPanel.TabIndex = 0
         '
-        'Button1
-        '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Button1.Location = New System.Drawing.Point(47, 227)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(79, 19)
-        Me.Button1.TabIndex = 2
-        Me.Button1.Text = "贊助作者！"
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.HTMLResuscitator.My.Resources.Resources.HTMLResuscitatorIcon
@@ -152,6 +142,16 @@ Partial Class AboutBox1
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 1
         Me.PictureBox1.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button1.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.Button1.Location = New System.Drawing.Point(47, 227)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(79, 19)
+        Me.Button1.TabIndex = 2
+        Me.Button1.Text = "贊助作者！"
         '
         'AboutBox1
         '
