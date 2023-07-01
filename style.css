@@ -138,3 +138,35 @@ a:hover {
 ::-webkit-scrollbar-thumb:hover {
     background: #fff;
 }
+
+.back-top {
+    z-index: 99999;
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    /* filter: Alpha(opacity=95); */
+    width: 35px;
+    height: 35px;
+    background: #204c02 center no-repeat
+      url(/images/top.svg);
+    background-size: 24px 24px;
+    border-radius: 12px;
+    border: 1px rgba(255, 255, 255, 0.6) solid;
+    box-shadow: 0px 0px 3px #ffffff;
+    transform: translateY(0%);
+    transition: all 0.2s linear;
+}
+
+.back-top:hover {
+    opacity: 0.8;
+    filter: Alpha(opacity=80);
+    box-shadow: 0px 0px 6px #ffffff;
+}
+
+.back-top.hide {
+    opacity: 0;
+    filter: Alpha(opacity=0);
+    transform: translateY(150%);
+}

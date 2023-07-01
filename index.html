@@ -64,7 +64,12 @@
                                 <h4>510208</h4>
                                 <p>我是一隻喜歡寫VB的企鵝 逍遙在電腦世界，從小一就開始學寫程式，到現在國一了，VB、JS、VBS等，也認識許多電腦資訊了^^</p>
                                 <a class="btn btn-primary" href="https://github.com/510208" target="_blank"><span class="fa-brands fa-github fa-xs"></span>  造訪作者頁面</a>
+                                <br>
+                                <p>  </p>
+                                <br>
+                                <div class="g-ytsubscribe" data-channelid="UC6orwHdQNVzwHsA6M7HYD9g" data-layout="default" data-count="default"></div>
                             </div>
+                            <script src="https://apis.google.com/js/platform.js"></script>
                         </div>
                     </div>
                 </div>
@@ -165,6 +170,31 @@
     <script>
         window.addEventListener('load', () => {
         quicklink.listen();
+        });
+    </script>
+    <div class="back-top hide" title="回頂部"></div>
+    <script>
+        $(document).ready(function () {
+        // 捲軸偵測距離頂部超過 50 才顯示按鈕
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 50) {
+            if ($(".back-top").hasClass("hide")) {
+                $(".back-top").toggleClass("hide");
+            }
+            } else {
+            $(".back-top").addClass("hide");
+            }
+        });
+
+        // 點擊按鈕回頂部
+        $(".back-top").on("click", function (event) {
+            $("html, body").animate(
+            {
+                scrollTop: 0
+            },
+            500 // 回頂部時間為 500 毫秒
+            );
+        });
         });
     </script>
 </body>
