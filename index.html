@@ -17,24 +17,70 @@
     <link rel="stylesheet" href="style.css">
     <!-- 背景特效引入jQuery -->
     <script type="text/javascript" src="/scripts/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="counter.css">
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">HTMLResuscitator</a>
+    <header id="site-header" class="fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <img src="images/logo.png" alt="軟體圖示" style="width: 40px;"><a class="navbar-brand mb-0 ml-2" href="#">HTMLResuscitator</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#header-image">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#features">功能特點</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#get">下載</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="https://github.com/510208/HTMLResuscitator/blob/master/README.md">使用指南</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#help-card">常見問題</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
-
-    <div class="jumbotron">
+    <script>
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('site-header');
+            if (window.scrollY > 100) {
+                header.classList.add('transparent');
+            } else {
+                header.classList.remove('transparent');
+            }
+        });
+    </script>
+    <script>
+        var menuItems = document.querySelectorAll('#top-menu a');
+        menuItems.forEach(function(item) {
+            item.addEventListener('click', function(event) {
+                event.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                behavior: 'smooth' /* 平滑捲動動畫效果 */
+                });
+            });
+        });
+    </script>
+    <div class="jumbotron" id="header-image">
         <div class="container">
             <h1 class="display-4"><strong>HTMLResuscitator</strong></h1>
             <p class="lead">讓您以固定間隔重新載入 HTML 檔案或網頁的軟體</p>
             <a class="btn btn-primary btn-lg" href="https://github.com/510208/HTMLResuscitator/releases/latest" target="_blank"
-                role="button"><span class="fa-solid fa-download fa-beat-fade fa-xs"></span>  立即下載</a>
+                role="button" id="get"><span class="fa-solid fa-download fa-beat-fade fa-xs"></span>  立即下載</a>
         </div>
     </div>
-    <div class="container">
+    <div class="container" id="features">
         <div class="row">
             <div class="col-md-6">
                 <div class="card">
@@ -134,12 +180,11 @@
         </div>
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fa-solid fa-circle-question"></i> 常見問題</h5>
+                <h5 class="mb-0" id="help-card"><i class="fa-solid fa-circle-question"></i> 常見問題</h5>
             </div>
             <div class="card-body">
                 <p>在使用 HTMLResuscitator 過程中遇到問題？請查看我們的常見問題頁面以獲得解答。</p>
                 <a class="btn btn-primary" href="https://github.com/510208/HTMLResuscitator" target="_blank"><span class='fa-solid fa-handshake-angle fa-xs'></span>  常見問題</a>
-                <a class="btn btn-primary" href="https://github.com/510208/HTMLResuscitator/discussions" target="_blank"><span class="fa-solid fa-message"></span>  論壇中心</a>
             </div>
         </div>
         <div class="card">
@@ -160,6 +205,7 @@
         <p>版權所有 &copy; 2023 HTMLResuscitator</p>
         <p>本網站使用 <a href="https://getbootstrap.com/" class="underline-animation" target="_blank">Bootstrap</a> 以及 <a href="https://fontawesome.com/" class="underline-animation" target="_blank">Font Awesome</a> 製作</p>
         <p>本軟體採用 <a href="https://getbootstrap.com/" class="underline-animation" target="_blank">BSD-2-Clause license</a> 授權</p>
+        <p>造訪人數： <span id="counter" class="counter">0</span></p>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -198,6 +244,7 @@
         });
         });
     </script>
+    <script src="/scripts/counter.js"></script>
 </body>
 
 </html>

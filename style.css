@@ -170,3 +170,38 @@ a:hover {
     filter: Alpha(opacity=0);
     transform: translateY(150%);
 }
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    border: 2px solid transparent;
+    padding: 5px;
+    margin: 2px 0;
+    z-index: 999;
+}
+
+.navbar-brand {
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    margin-left: 10px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #aaa;
+}
+
+#site-header {
+    background-color: #28a745; /* 背景色 */
+    transition: background-color 0.3s ease; /* 轉場動畫效果 */
+}
+
+#site-header.transparent {
+    background-color: transparent; /* 背景色變為全透明 */
+}
+  

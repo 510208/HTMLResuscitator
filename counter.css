@@ -1,0 +1,8 @@
+@keyframes countUp {
+  from { transform: translateY(50%); }
+  to { transform: translateY(0%); }
+}
+
+.counter {
+  transition: transform 0.5s ease-in-out;
+}
